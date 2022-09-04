@@ -7,6 +7,7 @@ import Home from './components/Home';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import Posts from './components/Posts';
+import AccountForm from './components/AccountForm';
 
 const App = () => {
 
@@ -18,9 +19,8 @@ const App = () => {
         <Header />
         <Routes>
             <Route path="/" element ={<Home />}></Route>
-            <Route path="/login" element ={<Login />}></Route>
+            <Route path="/account/:action" element ={<AccountForm />}></Route>
             <Route path="/posts" element ={<Posts posts = {posts} setPosts = {setPosts}/>}></Route>
-            <Route path="/signup" element = {<Signup />}></Route>
         </Routes>
     </div>
     </BrowserRouter>
