@@ -7,11 +7,8 @@ const Login = () => {
         <label>Password:</label>
         <input>
         </input>
-        <button>
+        <button type="submit">
             Log In
-        </button>
-        <button>
-            Sign Up
         </button>
         </form>
     )
