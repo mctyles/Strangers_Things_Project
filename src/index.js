@@ -12,6 +12,7 @@ import AccountForm from './components/AccountForm';
 const App = () => {
 
     const [posts, setPosts] = useState([]);
+    const [token, setToken] = useState('');
 
     return (
     <BrowserRouter>
@@ -19,7 +20,7 @@ const App = () => {
         <Header />
         <Routes>
             <Route path="/" element ={<Home />}></Route>
-            <Route path="/account/:action" element ={<AccountForm />}></Route>
+            <Route path="/account/:action" element ={<AccountForm setToken = {setToken} />}></Route>
             <Route path="/posts" element ={<Posts posts = {posts} setPosts = {setPosts}/>}></Route>
         </Routes>
     </div>

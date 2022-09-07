@@ -7,3 +7,27 @@ export const fetchPosts = async () => {
     const { posts } = data;
     return posts;
 }
+
+export const fetchAccount = async (action, username, password) => {
+  try {
+  const result = await fetch(`${baseURL}/${cohort}/users/${action === "signup" ? 'register' : 'login'}`, {
+  method: "POST",
+  headers: {
+    'Content-Type': 'application/json'
+  },
+  body: JSON.stringify({
+    user: {
+      username,
+      password,
+    },
+  }),
+}) 
+
+const { data } = await result.json();
+return data;
+
+} catch(err) {
+    console.error(err);
+}
+
+};
