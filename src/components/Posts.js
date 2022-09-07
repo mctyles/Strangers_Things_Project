@@ -17,8 +17,14 @@ const Posts = ({ posts, setPosts }) => {
         <div>
             {
                 posts.map(element => (
-                    <div>
-                        <h5>{element.title}</h5>
+                    <div class="card">
+                        <h5 class="card-header">{element.title}</h5>
+                        <div class="card-body">
+                            <h5 class="card-title">{element.price}</h5>
+                            <p class="card-text">{element.description}</p>
+                            <a href="#" class="btn btn-primary">Message</a>
+                            <a href="#" class="btn btn-primary">Edit</a>
+                        </div>
                     </div>
                     )
                 )
