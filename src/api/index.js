@@ -36,6 +36,18 @@ return data;
 
 };
 
-export const fetchGuest = async () => {
-    
+export const fetchUser = async (token) => {
+    try {
+        const result = await fetch(`${baseURL}/${cohort}/users/me`, {
+        headers: {
+          'Content-Type': 'application/json',
+          'Authorization': `Bearer ${token}`
+        },
+        })
+        const { data } = await result.json();
+        console.log(data);
+        return data;
+} catch(err) {
+    console.error(err)
+}
 }
