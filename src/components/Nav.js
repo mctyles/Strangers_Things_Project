@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes, useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Nav = ({ token, setToken }) => {
 
@@ -12,12 +12,12 @@ const Nav = ({ token, setToken }) => {
     return (
     <nav className='nav d-flex p-2 flex-row justify-content-between'>
         <ul className="nav nav-pills d-flex p-2 flex-row">
-            <li className="nav-item"><Link className ="border border-dark nav-link" to="/"> Home</Link></li>
-            <li className="nav-item"><Link className ="border border-dark nav-link" to="/posts"> Posts</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/"> Home</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/posts"> Posts</Link></li>
         </ul>
         <ul className="nav nav-pills d-flex p-2 flex-row">
             <li className="nav-item dropdown">
-                <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Manage Account</a>
+                <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{token ? 'Your Account' : 'Log In / Sign Up'}</a>
                 <div className="dropdown-menu">
                     {
                     token ?

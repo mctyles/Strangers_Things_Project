@@ -19,30 +19,28 @@ const AccountForm = ({ setToken }) => {
 
     return (
         <>
-        <h1>{action === 'login' ? 'Log In' : 'Sign Up'}</h1>
-        <form onSubmit={handleSubmit}>
+        <h1 className="ml-2">{action === 'login' ? 'Log In' : 'Sign Up'}</h1>
+        <form 
+        onSubmit={handleSubmit}
+        className = "d-flex flex-column align-items-start m-3"
+        >
             <label htmlFor="username">Username:</label>
             <input 
             type="text" 
             id="username" 
+            className="form-control mt-2"
             value = {username}
             onChange = {(event) => setUsername(event.target.value)}
             />
-            <label htmlFor="password">Password:</label>
+            <label htmlFor="password" className="mt-2">Password:</label>
             <input 
             type="password" 
             id="password" 
+            className="form-control"
             value = {password}
             onChange = {(event) => setPassword(event.target.value)}
             />
-            {
-            action === 'signup' &&
-            <>
-            <label htmlFor="not-a-scammer">I am not a scammer</label>
-            <input type="checkbox" />
-            </>
-            }
-            <button type="submit">
+            <button type="submit" className="mt-2">
                 {action === 'login' ? 'Log In' : 'Sign Up'}
             </button>
         </form>

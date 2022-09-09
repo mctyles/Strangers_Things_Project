@@ -11,7 +11,7 @@ import AccountForm from './components/AccountForm';
 const App = () => {
 
     const [posts, setPosts] = useState([]);
-    const [token, setToken] = useState('');
+    const [token, setToken] = useState(window.localStorage.getItem('token') || '');
     const [user, setUser] = useState(null);
 
     useEffect(() => {
@@ -22,6 +22,10 @@ const App = () => {
             }
             getUser();
         }
+    }, [token])
+
+    useEffect (() => {
+        window.localStorage.setItem('token', token)
     }, [token])
 
     return (
