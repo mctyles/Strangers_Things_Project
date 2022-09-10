@@ -101,3 +101,22 @@ export const fetchUser = async (token) => {
     console.error(err)
 }
 }
+
+export const addPost = async (token, title, price, description, location, deliver) => {
+    try {
+        const data = await callApi({method: 'POST', path: '/posts', token, body: {
+            post: {
+              title,
+              price,
+              description,
+              location,
+              deliver
+            },
+          }
+        });
+        return data;
+        } catch(err) {
+            console.error(err)
+        }
+    }
+    

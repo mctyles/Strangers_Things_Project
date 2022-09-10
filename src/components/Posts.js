@@ -28,7 +28,7 @@ const Posts = ({ posts, setPosts, token }) => {
     return (
         <div className="m-3">
             <h1>Posts</h1>
-            <CreatePostForm token ={token}/>
+            <CreatePostForm token ={token} setPosts={setPosts}/>
             <input type="text" 
             className="form-control" 
             placeholder="Search posts" 

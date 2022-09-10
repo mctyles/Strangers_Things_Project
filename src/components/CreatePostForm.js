@@ -1,11 +1,22 @@
 import { useState } from "react";
+import { addPost } from "../api";
 
-export const CreatePostForm = ({ token }) => {
+export const CreatePostForm = ({ token, setPosts }) => {
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
     const [deliver, setDeliver] = useState(false);
+
+    const handleSubmit = async (event) => {
+    event.preventDefault()
+    const { post } = await addPost(token, title, price, description, location, deliver);
+    setPosts((prev) => [post, ...prev]);
+    setTitle("");
+    setPrice("");
+    setLocation("");
+    setDescription("");
+    }
 
     return (
         <div>
@@ -13,18 +24,52 @@ export const CreatePostForm = ({ token }) => {
             token &&
             <>
             <h5>Create New Post</h5>
-                <form className="d-flex flex-column align-items-start m-3">
-                    <label htmlFor="">Title:</label>
-                    <input type="text" />
-                    <label htmlFor="">Price:</label>
-                    <input type="text" />
-                    <label htmlFor="">Description:</label>
-                    <input type="text" />
-                    <label htmlFor="">Location:</label>
-                    <input type="text" />
+                <form 
+                className="d-flex flex-column align-items-start m-3"
+                onSubmit={handleSubmit}
+                >
+                    <label htmlFor="title">Title:</label>
+                    <input type="text" 
+                        name="title"
+                        className="form-control"
+                        value={title}
+                        onChange={(event) => setTitle(event.target.value)}
+                    />
+                    <label htmlFor="price">Price:</label>
+                    <input type="text" 
+                        name="price"
+                        className="form-control"
+                        value={price}
+                        onChange={(event) => setPrice(event.target.value)}
+                    />
+                    <label htmlFor="description">Description:</label>
+                    <input type="text" 
+                        name="description"
+                        className="form-control"
+                        value={description}
+                        onChange={(event) => setDescription(event.target.value)}
+                    />
+                    <label htmlFor="location">Location:</label>
+                    <input 
+                        type="text"
+                        name="location"
+                        className="form-control"
+                        value={location}
+                        onChange={(event) => setLocation(event.target.value)} 
+                        />
                     <div>
-                    <label htmlFor="">Will Deliver:</label>
-                    <input type="checkbox" />
+                    <label htmlFor="delivery-option">Will Deliver:</label>
+                    <input type="checkbox" 
+                        name="delivery-option"
+                        className="form-control"
+                        onChange={(event) => {
+                            if (event.target.checked) {
+                                setDeliver(true);
+                            } else {
+                                setDeliver(false);
+                            }
+                        }}
+                    />
                     </div>
                     <button type='submit'>Post</button>
                 </form>
