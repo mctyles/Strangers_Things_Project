@@ -7,6 +7,7 @@ import Header from './components/Header';
 import Home from './components/Home';
 import Posts from './components/Posts';
 import AccountForm from './components/AccountForm';
+import SinglePost from './components/SinglePost';
 
 const App = () => {
 
@@ -33,9 +34,11 @@ const App = () => {
     <div>
         <Header token = {token} setToken = {setToken}/>
         <Routes>
-            <Route path="/" element ={<Home user = {user}/>}></Route>
+            <Route path="/" element ={<Home token = {token} user = {user}/>}></Route>
             <Route path="/account/:action" element ={<AccountForm setToken = {setToken} />}></Route>
             <Route path="/posts" element ={<Posts posts = {posts} setPosts = {setPosts} token={token}/>}></Route>
+            <Route path="/posts/:postId" element={<SinglePost posts={posts} token={token} />}
+        />
         </Routes>
     </div>
     </BrowserRouter>

@@ -21,11 +21,13 @@ const Nav = ({ token, setToken }) => {
                 <div className="dropdown-menu">
                     {
                     token ?
-                    <><a className ="dropdown-item" href="#" onClick = { () => {
+                    <>
+                    <a className ="dropdown-item" href="#" onClick = { () => {
                         logout();
                         return false;
                     }
-                    }> Log Out</a></> :
+                    }> Log Out</a>
+                    </> :
                     <>
                     <Link className ="dropdown-item" to="/account/login"> Login</Link>
                     <Link className ="dropdown-item" to="/account/signup"> Sign Up</Link>

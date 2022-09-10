@@ -6,11 +6,12 @@ export const CreatePostForm = ({ token, setPosts }) => {
     const [price, setPrice] = useState('');
     const [description, setDescription] = useState('');
     const [location, setLocation] = useState('');
-    const [deliver, setDeliver] = useState(false);
+    const [willDeliver, setWillDeliver] = useState(false);
 
     const handleSubmit = async (event) => {
     event.preventDefault()
-    const { post } = await addPost(token, title, price, description, location, deliver);
+    const { post } = await addPost(token, title, price, description, location, willDeliver);
+    post.isAuthor = true;
     setPosts((prev) => [post, ...prev]);
     setTitle("");
     setPrice("");
@@ -64,9 +65,9 @@ export const CreatePostForm = ({ token, setPosts }) => {
                         className="form-control"
                         onChange={(event) => {
                             if (event.target.checked) {
-                                setDeliver(true);
+                                setWillDeliver(true);
                             } else {
-                                setDeliver(false);
+                                setWillDeliver(false);
                             }
                         }}
                     />

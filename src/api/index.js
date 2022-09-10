@@ -24,9 +24,9 @@ export const callApi = async ({ method, path, token, body }) => {
     return data.data;
   };
   
-export const fetchPosts = async () => {
+export const fetchPosts = async (token) => {
     try {
-    const data = callApi({path: '/posts'})
+    const data = callApi({path: '/posts', token})
     const { posts } = await data;
     return posts;
     } catch(err) {
@@ -102,7 +102,7 @@ export const fetchUser = async (token) => {
 }
 }
 
-export const addPost = async (token, title, price, description, location, deliver) => {
+export const addPost = async (token, title, price, description, location, willDeliver) => {
     try {
         const data = await callApi({method: 'POST', path: '/posts', token, body: {
             post: {
@@ -110,9 +110,19 @@ export const addPost = async (token, title, price, description, location, delive
               price,
               description,
               location,
-              deliver
+              willDeliver
             },
           }
+        });
+        return data;
+        } catch(err) {
+            console.error(err)
+        }
+    }
+    
+export const apiDelete = async (post) => {
+    try {
+        const data = await callApi({method: 'DELETE', path: `/posts/${post.id}`, token, 
         });
         return data;
         } catch(err) {

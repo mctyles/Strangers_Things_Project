@@ -1,13 +1,14 @@
 import { useState, useEffect } from "react";
 import { fetchPosts } from "../api";
 import { CreatePostForm } from "./CreatePostForm";
+import Post from "./Post";
 
 const Posts = ({ posts, setPosts, token }) => {
 
     const [searchValue, setSearchValue] = useState('');
 
-    const getPosts = async () => {
-        const returnPosts = await fetchPosts();
+    const getPosts = async (token) => {
+        const returnPosts = await fetchPosts(token);
         setPosts(returnPosts);
         console.log(returnPosts)
     }
@@ -36,19 +37,8 @@ const Posts = ({ posts, setPosts, token }) => {
             onChange={(event => setSearchValue(event.target.value))}
             />
             {
-                filteredPosts.map(post => (
-                    <div className="card m-3" key={post._id}>
-                        <h5 className="card-header">{post.title}</h5>
-                        <div className="card-body">
-                            <h5 className="card-title">Price: {post.price}</h5>
-                            <p className="card-text">Description: {post.description}</p>
-                            <p className="card-text">Location: {post.location}</p>
-                            <p className="card-text">Will Deliver: {post.willDeliver ? 'Yes' : 'No'}</p>
-                            <a href="#" className="btn btn-primary">Message</a>
-                            <a href="#" className="btn btn-primary">Edit</a>
-                        </div>
-                    </div>
-                    )
+                filteredPosts.map(post => 
+                    <Post key={post.id} post={post} setPosts={setPosts} />
                 )
             }
         </div>
