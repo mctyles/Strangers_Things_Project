@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { addPost } from "../api";
 
+
 export const CreatePostForm = ({ token, setPosts }) => {
     const [title, setTitle] = useState('');
     const [price, setPrice] = useState('');
@@ -11,7 +12,6 @@ export const CreatePostForm = ({ token, setPosts }) => {
     const handleSubmit = async (event) => {
     event.preventDefault()
     const { post } = await addPost(token, title, price, description, location, willDeliver);
-    post.isAuthor = true;
     setPosts((prev) => [post, ...prev]);
     setTitle("");
     setPrice("");

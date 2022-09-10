@@ -1,12 +1,13 @@
-import { useParams, useNavigate } from "react-router-dom";
+import { useParams, useNavigate, Link } from "react-router-dom";
+import { apiDelete } from "../api";
 
-const SinglePost = ({ posts, token }) => {
+const SinglePost = ({ posts, setPosts, token }) => {
     
     const { postId } = useParams();
     const navigate = useNavigate();
 
-    const deleteThisPost = (post) => {
-        const data = apiDelete(post);
+    const deleteThisPost = () => {
+        const data = apiDelete(post, token);
         setPosts((prev) => prev.filter((post) => postId !== post.id));
         navigate('/posts')
     }
@@ -25,11 +26,12 @@ const SinglePost = ({ posts, token }) => {
                 {post.isAuthor && (
                 <button
                 className="btn btn-link text-danger"
-                onClick={() => deletePost(post)}
+                onClick={() => deleteThisPost(post)}
                 >
                 Delete
                 </button>
             )}
+            <Link to="/posts">Back to posts</Link>
             </div>
         </div>
     )

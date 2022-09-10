@@ -3,12 +3,14 @@ import { Link } from "react-router-dom";
 
 
 
-const Post = ({ post, setPosts }) => {
+const Post = ({ post, setPosts, token }) => {
 
-    const deletePost = (post) => {
-        const data = apiDelete(post);
+    const postId = post._id;
+
+    const deletePost = () => {
+        const data = apiDelete(post, token);
         setPosts((prev) =>
-        prev.filter((post) => postId !== post.id)
+        prev.filter((post) => postId !== post._id)
       );
     }
 

@@ -120,9 +120,9 @@ export const addPost = async (token, title, price, description, location, willDe
         }
     }
     
-export const apiDelete = async (post) => {
+export const apiDelete = async (post, token) => {
     try {
-        const data = await callApi({method: 'DELETE', path: `/posts/${post.id}`, token, 
+        const data = await callApi({method: 'DELETE', path: `/posts/${post._id}`, token 
         });
         return data;
         } catch(err) {

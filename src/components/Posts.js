@@ -7,7 +7,7 @@ const Posts = ({ posts, setPosts, token }) => {
 
     const [searchValue, setSearchValue] = useState('');
 
-    const getPosts = async (token) => {
+    const getPosts = async () => {
         const returnPosts = await fetchPosts(token);
         setPosts(returnPosts);
         console.log(returnPosts)
@@ -38,7 +38,7 @@ const Posts = ({ posts, setPosts, token }) => {
             />
             {
                 filteredPosts.map(post => 
-                    <Post key={post.id} post={post} setPosts={setPosts} />
+                    <Post key={post.id} post={post} setPosts={setPosts} token = {token} />
                 )
             }
         </div>
