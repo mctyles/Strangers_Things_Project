@@ -39,7 +39,7 @@ const App = () => {
             <Route path="/account/:action" element ={<AccountForm setToken = {setToken} />}></Route>
             <Route path="/posts" element ={<Posts posts = {posts} setPosts = {setPosts} token={token}/>}></Route>
             <Route path="/posts/:postId" element={<SinglePost posts={posts} setPosts={setPosts} token={token} />}></Route>
-            <Route path="/profile" element={<Profile user={user} />}></Route>
+            <Route path="/profile/:section" element={<Profile user={user} />}></Route>
         </Routes>
     </div>
     </BrowserRouter>

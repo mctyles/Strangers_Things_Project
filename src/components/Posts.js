@@ -28,9 +28,15 @@ const Posts = ({ posts, setPosts, token }) => {
     })
 
     return (
-        <div className="m-3">
+        <div className="m-5">
             <h1>Posts</h1>
-            <button onClick={() => {setCreatePostActive(!createPostActive)}}>{!createPostActive ? 'Create New Post' : 'Hide'}</button>
+            {
+            token &&
+            <button className="btn btn-outline-primary mb-3"
+                onClick={() => {setCreatePostActive(!createPostActive)}}>
+                {!createPostActive ? 'Create New Post' : 'Hide'}
+                </button>
+            }
             {createPostActive &&
             <CreatePostForm token={token} setPosts={setPosts}/>
             }

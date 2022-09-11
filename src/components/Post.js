@@ -15,7 +15,7 @@ const Post = ({ post, setPosts, token }) => {
     }
 
     return (
-        <div className="card m-3">
+        <div className="card my-3" key={post._id}>
             <h5 className="card-header">{post.title}</h5>
             <div className="card-body">
                 <h5 className="card-title">Price: {post.price}</h5>

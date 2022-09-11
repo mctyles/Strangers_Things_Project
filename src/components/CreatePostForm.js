@@ -46,7 +46,7 @@ const handleSubmit = async (event) => {
                         onChange={(event) => setPrice(event.target.value)}
                     />
                     <label htmlFor="description">Description:</label>
-                    <input type="text" 
+                    <textarea type="text" 
                         name="description"
                         className="form-control"
                         value={description}
@@ -74,7 +74,7 @@ const handleSubmit = async (event) => {
                         }}
                     />
                     </div>
-                    <button type='submit'>Post</button>
+                    <button className="mt-2 btn btn-outline-dark" type='submit'>Post</button>
                 </form>
     }
     </div>
