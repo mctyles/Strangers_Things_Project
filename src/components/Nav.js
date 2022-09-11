@@ -22,6 +22,7 @@ const Nav = ({ token, setToken }) => {
                     {
                     token ?
                     <>
+                    <Link className ="dropdown-item" to="/profile">Profile</Link>
                     <a className ="dropdown-item" href="#" onClick = { () => {
                         logout();
                         return false;
