@@ -50,7 +50,6 @@ export const fetchUser = async (token) => {
 }
 
 export const addPost = async (token, title, price, description, location, willDeliver) => {
-    try {
         const data = await callApi({method: 'POST', path: '/posts', token, body: {
             post: {
               title,
@@ -62,9 +61,6 @@ export const addPost = async (token, title, price, description, location, willDe
           }
         });
         return data;
-        } catch(err) {
-            console.error(err)
-        }
     }
     
 export const apiDelete = async (post, token) => {
@@ -86,3 +82,17 @@ export const createMessage = async (post, token, content) => {
         });
         return data;
     }
+
+export const editPost = async (post, token, title, price, description, location, willDeliver) => {        
+    const data = await callApi({method: 'PATCH', path: `/posts/${post._id}`, token, body: {
+        post: {
+            title,
+            price,
+            description,
+            location,
+            willDeliver
+        },
+      }
+    });
+    return data;
+}

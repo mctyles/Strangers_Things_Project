@@ -32,7 +32,7 @@ const Posts = ({ posts, setPosts, token }) => {
             <h1>Posts</h1>
             <button onClick={() => {setCreatePostActive(!createPostActive)}}>{!createPostActive ? 'Create New Post' : 'Hide'}</button>
             {createPostActive &&
-            <CreatePostForm token ={token} setPosts={setPosts}/>
+            <CreatePostForm token={token} setPosts={setPosts}/>
             }
             <input type="text" 
             className="form-control" 
@@ -42,7 +42,7 @@ const Posts = ({ posts, setPosts, token }) => {
             />
             {
                 filteredPosts.map(post => 
-                    <Post key={post.id} post={post} setPosts={setPosts} token = {token} />
+                    <Post key={post.id} post={post} setPosts={setPosts} token={token} />
                 )
             }
         </div>

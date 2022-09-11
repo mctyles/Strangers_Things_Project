@@ -61,7 +61,7 @@ const SinglePost = ({ posts, setPosts, token }) => {
             </div>
             </>
             ) : (
-                <EditPost post={post} setEditPostActive={setEditPostActive}/>
+                <EditPost post={post} setEditPostActive={setEditPostActive} token={token}/>
             )
 }
         </>

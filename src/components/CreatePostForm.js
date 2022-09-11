@@ -9,15 +9,19 @@ export const CreatePostForm = ({ token, setPosts }) => {
     const [location, setLocation] = useState('');
     const [willDeliver, setWillDeliver] = useState(false);
 
-    const handleSubmit = async (event) => {
-    event.preventDefault()
-    const { post } = await addPost(token, title, price, description, location, willDeliver);
-    setPosts((prev) => [post, ...prev]);
-    setTitle("");
-    setPrice("");
-    setLocation("");
-    setDescription("");
+const handleSubmit = async (event) => {
+    try {
+        event.preventDefault()
+        const { post } = await addPost(token, title, price, description, location, willDeliver);
+        setPosts((prev) => [post, ...prev]);
+        setTitle("");
+        setPrice("");
+        setLocation("");
+        setDescription("");
+    } catch(err) {
+        console.error(err);
     }
+}
 
     return (
         <div>

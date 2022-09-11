@@ -10,14 +10,14 @@ const Nav = ({ token, setToken }) => {
     }
 
     return (
-    <nav className='nav d-flex p-2 flex-row justify-content-between'>
+    <nav className='nav d-flex p-4 flex-row justify-content-between'>
         <ul className="nav nav-pills d-flex p-2 flex-row">
-            <li className="nav-item"><Link className="nav-link active" to="/"> Home</Link></li>
-            <li className="nav-item"><Link className="nav-link active" to="/posts"> Posts</Link></li>
+            <li className="nav-item"><Link className="nav-link" to="/"> Home</Link></li>
+            <li className="nav-item ml-2"><Link className="nav-link" to="/posts"> Posts</Link></li>
         </ul>
         <ul className="nav nav-pills d-flex p-2 flex-row">
             <li className="nav-item dropdown">
-                <a className="nav-link active dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{token ? 'Your Account' : 'Log In / Sign Up'}</a>
+                <a className="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">{token ? 'Your Account' : 'Log In / Sign Up'}</a>
                 <div className="dropdown-menu">
                     {
                     token ?
