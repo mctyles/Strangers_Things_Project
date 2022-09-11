@@ -25,29 +25,14 @@ export const callApi = async ({ method, path, token, body }) => {
   };
   
 export const fetchPosts = async (token) => {
-    try {
     const data = callApi({path: '/posts', token})
     const { posts } = await data;
     return posts;
-    } catch(err) {
-        console.error(err)
-    }
 }
-/* export const fetchPosts = async () => {
-    try {
-    const result = await fetch(`${baseUrl}/posts`);
-    const { data } = await result.json();
-    const { posts } = data;
-    return posts;
-    } catch(err) {
-        console.error(err)
-    }
-} */
 
 export const fetchAccount = async (action, username, password) => {
     const path = (action === "signup" ? '/users/register' : '/users/login')
     console.log(path)
-    try {
     const data = await callApi({method: 'POST', path: path, body: {
         user: {
           username,
@@ -57,49 +42,11 @@ export const fetchAccount = async (action, username, password) => {
     })
     console.log(data);
     return data;
-    } catch(err) {
-        console.error(err)
-    }
 }
-
-/* export const fetchAccount = async (action, username, password) => {
-  try {
-  const result = await fetch(`${baseUrl}/users/${action === "signup" ? 'register' : 'login'}`, {
-  method: "POST",
-  headers: {
-    'Content-Type': 'application/json'
-  },
-  body: JSON.stringify({
-    user: {
-      username,
-      password,
-    },
-  }),
-}) 
-
-const { data } = await result.json();
-return data;
-
-} catch(err) {
-    console.error(err);
-}
-
-}; */
 
 export const fetchUser = async (token) => {
-    try {
-        const result = await fetch(`${baseUrl}/users/me`, {
-        headers: {
-          'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        },
-        })
-        const { data } = await result.json();
-        console.log(data);
-        return data;
-} catch(err) {
-    console.error(err)
-}
+    const data = await callApi({path: '/users/me', token});
+    return data;
 }
 
 export const addPost = async (token, title, price, description, location, willDeliver) => {
@@ -121,12 +68,21 @@ export const addPost = async (token, title, price, description, location, willDe
     }
     
 export const apiDelete = async (post, token) => {
-    try {
         const data = await callApi({method: 'DELETE', path: `/posts/${post._id}`, token 
         });
         return data;
-        } catch(err) {
-            console.error(err)
-        }
     }
     
+export const createMessage = async (post, token, content) => {
+    const data = await callApi({
+        method: 'POST', 
+        path: `/posts/${post._id}/messages`, 
+        token, 
+        body: {
+            message: {
+                content,
+            },
+        },
+        });
+        return data;
+    }

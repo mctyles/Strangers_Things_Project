@@ -1,8 +1,11 @@
+import { useState } from "react";
 import { useParams, useNavigate, Link } from "react-router-dom";
 import { apiDelete } from "../api";
+import MessageForm from "./MessageForm";
 
 const SinglePost = ({ posts, setPosts, token }) => {
-    
+    const [messageStatus, setMessageStatus] = useState(false);
+
     const { postId } = useParams();
     const navigate = useNavigate();
 
@@ -13,7 +16,8 @@ const SinglePost = ({ posts, setPosts, token }) => {
     }
 
     const post = posts.find((post) => post._id === postId);
-    console.log(post);
+
+    const openMessageForm = () => setMessageStatus(true);
 
     return (
         <div className="card m-3">
@@ -32,6 +36,14 @@ const SinglePost = ({ posts, setPosts, token }) => {
                 </button>
             )}
             <Link to="/posts">Back to posts</Link>
+            {
+                !post.isAuthor && token && (
+                    <button onClick={openMessageForm}>Send Message to Author</button>
+                )
+            }
+            {
+                messageStatus && <MessageForm post={post} token={token} setMessageStatus={setMessageStatus}/>
+            }
             </div>
         </div>
     )

@@ -9,17 +9,23 @@ const AccountForm = ({ setToken }) => {
 
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
+    const [error, setError] = useState('');
+    
     const handleSubmit = async (event) => {
+        try {
         event.preventDefault();
         const { token } = await fetchAccount(action, username, password);
         setToken(token);
-        navigate('/');
+        navigate('/'); 
+        } catch(err) {
+            setError(err);
+        }
     }
 
     return (
         <>
         <h1 className="ml-2">{action === 'login' ? 'Log In' : 'Sign Up'}</h1>
+        {error && <p className="text-danger m-2">{error}</p>}
         <form 
         onSubmit={handleSubmit}
         className = "d-flex flex-column align-items-start m-3"
