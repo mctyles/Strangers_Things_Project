@@ -6,6 +6,7 @@ import Post from "./Post";
 const Posts = ({ posts, setPosts, token }) => {
 
     const [searchValue, setSearchValue] = useState('');
+    const [createPostActive, setCreatePostActive] = useState(false)
 
     const getPosts = async () => {
         const returnPosts = await fetchPosts(token);
@@ -29,7 +30,10 @@ const Posts = ({ posts, setPosts, token }) => {
     return (
         <div className="m-3">
             <h1>Posts</h1>
+            <button onClick={() => {setCreatePostActive(!createPostActive)}}>{!createPostActive ? 'Create New Post' : 'Hide'}</button>
+            {createPostActive &&
             <CreatePostForm token ={token} setPosts={setPosts}/>
+            }
             <input type="text" 
             className="form-control" 
             placeholder="Search posts" 

@@ -2,7 +2,7 @@ import Nav from "./Nav";
 
 const Header = ({ token, setToken }) => {
     return (
-        <header className="d-flex p-2 flex-column">
+        <header id="header" className="d-flex p-2 flex-column">
         <h1 id="title" className="text-center">Stranger's Things</h1>
         <Nav token = {token} setToken={setToken}/>
         </header>

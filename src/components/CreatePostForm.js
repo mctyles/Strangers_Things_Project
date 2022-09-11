@@ -23,8 +23,6 @@ export const CreatePostForm = ({ token, setPosts }) => {
         <div>
         {
             token &&
-            <>
-            <h5>Create New Post</h5>
                 <form 
                 className="d-flex flex-column align-items-start m-3"
                 onSubmit={handleSubmit}
@@ -58,11 +56,11 @@ export const CreatePostForm = ({ token, setPosts }) => {
                         value={location}
                         onChange={(event) => setLocation(event.target.value)} 
                         />
-                    <div>
-                    <label htmlFor="delivery-option">Will Deliver:</label>
+                    <div className="d-flex flex-column align-items-start">
+                    <label htmlFor="delivery-option">Check this box if you are willing to deliver:</label>
                     <input type="checkbox" 
                         name="delivery-option"
-                        className="form-control"
+                        id="delivery-checkbox"
                         onChange={(event) => {
                             if (event.target.checked) {
                                 setWillDeliver(true);
@@ -74,7 +72,6 @@ export const CreatePostForm = ({ token, setPosts }) => {
                     </div>
                     <button type='submit'>Post</button>
                 </form>
-            </>
     }
     </div>
     )
