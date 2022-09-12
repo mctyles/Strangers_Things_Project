@@ -23,7 +23,11 @@ const EditPost = ({ post, setEditPostActive, token }) => {
 
     return (
         <>
-            <form action="submit" onSubmit={handleSubmit}>
+            <form 
+            action="submit" 
+            onSubmit={handleSubmit}
+            className="d-flex flex-column"
+            >
                 <div className="card m-3">
                     <input 
                     type="text" 
@@ -60,10 +64,11 @@ const EditPost = ({ post, setEditPostActive, token }) => {
                         value={location}
                         onChange={(event) => setLocation(event.target.value)}
                         />
-                        <label htmlFor="delivery-option">Check the box if you are willing to deliver:</label>
+                        <label htmlFor="delivery-option" className="mt-2">Check the box if you are willing to deliver:</label>
                         <input 
                         type="checkbox" 
                         name="delivery-option"
+                        className="ml-2"
                         onChange={(event) => {
                             if (event.target.checked) {
                                 setWillDeliver(true);
@@ -72,8 +77,10 @@ const EditPost = ({ post, setEditPostActive, token }) => {
                             }
                         }}
                         />
-                        <button type="submit">Submit Changes</button>
-                        <button onClick={() => setEditPostActive(false)}>Cancel</button>
+                        <div id="button-container" className="">
+                            <button class="btn btn-outline-dark" type="submit">Submit Changes</button>
+                            <button className="btn btn-outline-danger ml-2" onClick={() => setEditPostActive(false)}>Cancel</button>
+                        </div>
                     </div>
                 </div>
         </form>

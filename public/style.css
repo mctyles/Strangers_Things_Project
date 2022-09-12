@@ -18,7 +18,7 @@
 }
 
 .card {
-    box-shadow: 2px 2px black;
+    box-shadow: 2px 2px #393E59;
 }
 
 .nav-link {
@@ -29,3 +29,4 @@
 .username {
     color: #6FBFBF;
 }
+

@@ -2,9 +2,11 @@ import Post from "./Post";
 
 
 const YourPosts = ({posts}) => {
+    
+
     return (
     <>
-    <h2>Your Posts</h2>
+    <h3>Your Posts</h3>
     {
     posts.map((post) => (
       <Post key={post._id} post={post} />

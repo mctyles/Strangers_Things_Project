@@ -13,7 +13,7 @@ const ReceivedMessages = ({ user, messages }) => {
                     <div className="card m-3">
                     <h5 className="card-header">{`Message sent by ${message.fromUser.username}`}</h5>
                     <div className="card-body">
-                        <Link className="card-text" to={`/posts/${message.post._id}`}>View Post</Link>
+                        <Link className="d-block card-text mb-3" to={`/posts/${message.post._id}`}>View Original Post</Link>
                         <p className="card-text">{message.content}</p>
                     </div>
                 </div>

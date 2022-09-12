@@ -9,9 +9,12 @@ const Posts = ({ posts, setPosts, token }) => {
     const [createPostActive, setCreatePostActive] = useState(false)
 
     const getPosts = async () => {
+        try {
         const returnPosts = await fetchPosts(token);
         setPosts(returnPosts);
-        console.log(returnPosts)
+        } catch(err) {
+            console.error(err);
+        }
     }
 
     useEffect(() => {
@@ -34,7 +37,7 @@ const Posts = ({ posts, setPosts, token }) => {
             token &&
             <button className="btn btn-outline-primary mb-3"
                 onClick={() => {setCreatePostActive(!createPostActive)}}>
-                {!createPostActive ? 'Create New Post' : 'Hide'}
+                {!createPostActive ? 'Create New Post' : 'Hide New Post Form'}
                 </button>
             }
             {createPostActive &&

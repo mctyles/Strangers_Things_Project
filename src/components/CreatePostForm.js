@@ -38,21 +38,21 @@ const handleSubmit = async (event) => {
                         value={title}
                         onChange={(event) => setTitle(event.target.value)}
                     />
-                    <label htmlFor="price">Price:</label>
+                    <label className="mt-2" htmlFor="price">Price:</label>
                     <input type="text" 
                         name="price"
                         className="form-control"
                         value={price}
                         onChange={(event) => setPrice(event.target.value)}
                     />
-                    <label htmlFor="description">Description:</label>
+                    <label className="mt-2" htmlFor="description">Description:</label>
                     <textarea type="text" 
                         name="description"
                         className="form-control"
                         value={description}
                         onChange={(event) => setDescription(event.target.value)}
                     />
-                    <label htmlFor="location">Location:</label>
+                    <label className="mt-2" htmlFor="location">Location:</label>
                     <input 
                         type="text"
                         name="location"
@@ -61,18 +61,18 @@ const handleSubmit = async (event) => {
                         onChange={(event) => setLocation(event.target.value)} 
                         />
                     <div className="d-flex flex-column align-items-start">
-                    <label htmlFor="delivery-option">Check this box if you are willing to deliver:</label>
-                    <input type="checkbox" 
-                        name="delivery-option"
-                        id="delivery-checkbox"
-                        onChange={(event) => {
-                            if (event.target.checked) {
-                                setWillDeliver(true);
-                            } else {
-                                setWillDeliver(false);
-                            }
-                        }}
-                    />
+                        <label className="mt-2" htmlFor="delivery-option">Check this box if you are willing to deliver:</label>
+                        <input type="checkbox" 
+                            name="delivery-option"
+                            id="delivery-checkbox"
+                            onChange={(event) => {
+                                if (event.target.checked) {
+                                    setWillDeliver(true);
+                                } else {
+                                    setWillDeliver(false);
+                                }
+                            }}
+                        />
                     </div>
                     <button className="mt-2 btn btn-outline-dark" type='submit'>Post</button>
                 </form>

@@ -13,9 +13,13 @@ const Profile = ({ user }) => {
 
     return (
     <div className="d-flex flex-row">
-        <ProfileNav className="w-20"/>
+        <ProfileNav user={user}/>
           <div className="p-4">
-          <h1 className="mb-4">{`${user.username}'s Profile`}</h1>
+      {
+        section ==='home' && (
+          <h3 className="mb-4">Welcome to your profile!</h3>
+        )
+      }
       {
       section === 'posts' && (
               <YourPosts posts={posts}/>

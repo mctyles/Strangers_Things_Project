@@ -23,7 +23,7 @@ const Post = ({ post, setPosts, token }) => {
                 <p className="card-text">Location: {post.location}</p>
                 <p className="card-text">Will Deliver: {post.willDeliver ? 'Yes' : 'No'}</p>
                 <p className="card-text font-weight-bold">{`Last updated by ${post.author.username} at ${post.updatedAt}`}</p>
-                <Link className="card-link" to={`/posts/${post._id}`}>
+                <Link className="btn btn-link" to={`/posts/${post._id}`}>
                 View Post
                 </Link>
                 {post.isAuthor && (

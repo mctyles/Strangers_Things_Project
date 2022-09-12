@@ -32,7 +32,8 @@ const SinglePost = ({ posts, setPosts, token }) => {
                     <p className="card-text">Description: {post.description}</p>
                     <p className="card-text">Location: {post.location}</p>
                     <p className="card-text">Will Deliver: {post.willDeliver ? 'Yes' : 'No'}</p>
-                    {post.isAuthor && (
+                <p className="card-text font-weight-bold">{`Last updated by ${post.author.username} at ${post.updatedAt}`}</p>
+                {post.isAuthor && (
                     <button
                     className="btn btn-link text-danger"
                     onClick={() => deleteThisPost(post)}
@@ -40,21 +41,20 @@ const SinglePost = ({ posts, setPosts, token }) => {
                     Delete
                     </button>
                 )}
-                <p className="card-text font-weight-bold">{`Last updated by ${post.author.username} at ${post.updatedAt}`}</p>
                 { post.isAuthor &&
-                <button onClick={() => setEditPostActive(!editPostActive)}>Edit Post</button>
+                <button className="btn btn-link text-info" onClick={() => setEditPostActive(!editPostActive)}>Edit Post</button>
                 }
-                <Link to="/posts">Back to posts</Link>
-                </div>
-            </div>
-            <div>
-                            {
+                {
                     !post.isAuthor && token && (
-                        <button onClick={() => setMessageFormActive(!messageFormActive) }>
-                            {!messageFormActive ? 'Send Message to Author' : 'Hide'}
+                        <button className="btn btn-link text-info" onClick={() => setMessageFormActive(!messageFormActive) }>
+                            {!messageFormActive ? 'Send Message to Author' : 'Hide Message Form'}
                         </button>
                     )
                 }
+                <Link to="/posts" className="btn btn-link text-info">Back to posts</Link>
+                </div>
+            </div>
+            <div>
                 {
                     messageFormActive && <MessageForm post={post} token={token} setMessageFormActive={setMessageFormActive}/>
                 }
