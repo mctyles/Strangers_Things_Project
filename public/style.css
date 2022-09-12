@@ -1,9 +1,37 @@
 * {
+    margin: 0;
     color: #010326;
 }
+
+#app {
+    height: 100%;
+}
+
+.card {
+    box-shadow: 2px 2px #393E59;
+}
+
+.card-header {
+    background-color:#AEC5F2;
+}
+
 #delivery-checkbox {
     width: 2rem;
     height: 2rem;
+}
+
+#header {
+    background-color: #b9c4cd;
+}
+
+.nav-link {
+    color:white;
+    background-color: #393E59;
+}
+
+.profile-nav {
+    background-color: #D9D9D9;
+    min-height: 100vh;
 }
 
 #title {
@@ -13,20 +41,6 @@
     -webkit-text-stroke-color: black;
 }
 
-.card-header {
-    background-color:#AEC5F2;
-}
-
-.card {
-    box-shadow: 2px 2px #393E59;
-}
-
-.nav-link {
-    color:white;
-    background-color: #393E59;
-}
-
 .username {
     color: #6FBFBF;
 }
-

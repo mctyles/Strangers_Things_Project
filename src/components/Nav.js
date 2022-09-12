@@ -36,8 +36,8 @@ const Nav = ({ token, setToken }) => {
                     }> Log Out</a>
                     </> :
                     <>
-                    <Link className ="dropdown-item" to="/account/login"> Login</Link>
-                    <Link className ="dropdown-item" to="/account/signup"> Sign Up</Link>
+                        <Link className ="dropdown-item" to="/account/login"> Login</Link>
+                        <Link className ="dropdown-item" to="/account/signup"> Sign Up</Link>
                     </>
                     }
                     </div>

@@ -32,7 +32,7 @@ const App = () => {
 
     return (
     <BrowserRouter>
-    <div>
+    <div className='h-100'>
         <Header token = {token} setToken = {setToken}/>
         <Routes>
             <Route path="/" element ={<Home token = {token} user = {user}/>}></Route>
