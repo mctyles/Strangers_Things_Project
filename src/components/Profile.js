@@ -1,5 +1,4 @@
 import { Link, useParams } from "react-router-dom";
-import Post from "./Post";
 import ProfileNav from "./ProfileNav";
 import SentMessages from "./SentMessages";
 import ReceivedMessages from "./ReceivedMessages";

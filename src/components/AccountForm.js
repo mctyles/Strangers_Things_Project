@@ -13,10 +13,10 @@ const AccountForm = ({ setToken }) => {
     
     const handleSubmit = async (event) => {
         try {
-        event.preventDefault();
-        const { token } = await fetchAccount(action, username, password);
-        setToken(token);
-        navigate('/'); 
+            event.preventDefault();
+            const { token } = await fetchAccount(action, username, password);
+            setToken(token);
+            navigate('/'); 
         } catch(err) {
             setError(err);
         }

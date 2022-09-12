@@ -20,7 +20,7 @@ const MessageForm = ({ post, token, setMessageFormActive }) => {
         <form 
         action="submit" 
         onSubmit={handleSubmit}
-        className="d-flex flex-column align-items-start m-3"
+        className="d-flex flex-column align-items-start m-4"
         >
             <label htmlFor="content">Type your message here:</label>
             <textarea name="content" className="form-control mt-2" value={content} onChange={(event) => setContent(event.target.value)}/>

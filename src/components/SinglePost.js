@@ -11,17 +11,21 @@ const SinglePost = ({ posts, setPosts, token }) => {
     const { postId } = useParams();
     const navigate = useNavigate();
 
-    const deleteThisPost = () => {
-        const data = apiDelete(post, token);
-        setPosts((prev) => prev.filter((post) => postId !== post.id));
-        navigate('/posts')
+    const deleteThisPost = async () => {
+        try {
+            const data = await apiDelete(post, token);
+            setPosts((prev) => prev.filter((post) => postId !== post.id));
+            navigate('/posts');
+        } catch(err) {
+            console.error(err);
+        }
     }
 
     const post = posts.find((post) => post._id === postId);
 
     return (
         <>
-        {
+            {
             !editPostActive ? 
             (
             <>
@@ -63,7 +67,7 @@ const SinglePost = ({ posts, setPosts, token }) => {
             ) : (
                 <EditPost post={post} setEditPostActive={setEditPostActive} token={token}/>
             )
-}
+            }
         </>
     )
 }

@@ -78,12 +78,12 @@ const EditPost = ({ post, setEditPostActive, token }) => {
                         }}
                         />
                         <div id="button-container" className="">
-                            <button class="btn btn-outline-dark" type="submit">Submit Changes</button>
+                            <button className="btn btn-outline-dark" type="submit">Submit Changes</button>
                             <button className="btn btn-outline-danger ml-2" onClick={() => setEditPostActive(false)}>Cancel</button>
                         </div>
                     </div>
                 </div>
-        </form>
+            </form>
         </>
     )
 }

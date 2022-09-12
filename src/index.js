@@ -1,4 +1,4 @@
-import { BrowserRouter, Link, Route, Routes, useNavigate, useParams } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import {createRoot} from 'react-dom/client';
 import { fetchUser } from './api';
@@ -32,7 +32,7 @@ const App = () => {
 
     return (
     <BrowserRouter>
-    <div className='h-100'>
+    <div>
         <Header token = {token} setToken = {setToken}/>
         <Routes>
             <Route path="/" element ={<Home token = {token} user = {user}/>}></Route>

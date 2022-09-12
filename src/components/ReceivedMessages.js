@@ -10,14 +10,14 @@ const ReceivedMessages = ({ user, messages }) => {
             {
             receivedMessages.map ((message) => {
                 return (
-                    <div className="card m-3">
-                    <h5 className="card-header">{`Message sent by ${message.fromUser.username}`}</h5>
-                    <div className="card-body">
-                        <Link className="d-block card-text mb-3" to={`/posts/${message.post._id}`}>View Original Post</Link>
-                        <p className="card-text">{message.content}</p>
+                    <div className="card m-3" key={message._id}>
+                        <h5 className="card-header">{`Message sent by ${message.fromUser.username}`}</h5>
+                        <div className="card-body">
+                            <Link className="d-block card-text mb-3" to={`/posts/${message.post._id}`}>View Original Post</Link>
+                            <p className="card-text">{message.content}</p>
+                        </div>
                     </div>
-                </div>
-                )
+                    )
                 })
             }
         </>

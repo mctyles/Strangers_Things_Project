@@ -19,7 +19,7 @@ export const callApi = async ({ method, path, token, body }) => {
     const result = await fetch(baseUrl + path, options);
     const data = await result.json();
     if (data.error) {
-      throw data.error.message;
+        throw data.error.message;
     }
     return data.data;
   };
@@ -40,7 +40,6 @@ export const fetchAccount = async (action, username, password) => {
         },
       }
     })
-    console.log(data);
     return data;
 }
 

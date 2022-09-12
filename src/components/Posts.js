@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect } from "react";
 import { fetchPosts } from "../api";
 import { CreatePostForm } from "./CreatePostForm";
 import Post from "./Post";
@@ -51,7 +51,7 @@ const Posts = ({ posts, setPosts, token }) => {
             />
             {
                 filteredPosts.map(post => 
-                    <Post key={post.id} post={post} setPosts={setPosts} token={token} />
+                    <Post key={post._id} post={post} setPosts={setPosts} token={token} />
                 )
             }
         </div>

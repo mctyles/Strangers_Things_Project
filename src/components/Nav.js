@@ -28,19 +28,19 @@ const Nav = ({ token, setToken }) => {
                     {
                     token ?
                     <>
-                    <Link className ="dropdown-item" to="/profile/home">Profile</Link>
-                    <a className ="dropdown-item" href="#" onClick = { () => {
-                        logout();
-                        return false;
-                    }
-                    }> Log Out</a>
+                        <Link className ="dropdown-item" to="/profile/home">Profile</Link>
+                        <a className ="dropdown-item" href="#" onClick = { () => {
+                            logout();
+                            return false;
+                        }
+                        }> Log Out</a>
                     </> :
                     <>
                         <Link className ="dropdown-item" to="/account/login"> Login</Link>
                         <Link className ="dropdown-item" to="/account/signup"> Sign Up</Link>
                     </>
                     }
-                    </div>
+                </div>
             </li>
         </ul>
     </nav>
